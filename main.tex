@@ -1,0 +1,32 @@
+% !TEX program = xelatex
+\documentclass[UTF8,12pt,a4paper,fontset=fandol]{ctexart}
+% 跨平台默认使用 TeX Live 自带 Fandol 字体。
+% 若需与原报告的 Windows 系统字体一致，可删除 fontset=fandol。
+\usepackage{sdu-lab-report}
+\input{report-info}
+
+\begin{document}
+\makereportcover
+\reportfrontmatter
+
+\begin{abstract}
+在此概述实验目的、采用的方法、主要结果与结论。定稿时用实际实验内容替换本段；尚未执行的测试与尚未取得的数据应明确标注，不能当作已完成结果。
+\end{abstract}
+\reportkeywords{关键词一；关键词二；关键词三}
+\clearpage
+\tableofcontents
+\clearpage
+\reportmainmatter
+
+\input{sections/body}
+
+% 按课程要求选用；不需要时可删除以下整段。
+\section*{AI 使用情况声明}
+\addcontentsline{toc}{section}{AI 使用情况声明}
+在此如实填写是否使用 AI 工具、工具名称、辅助范围，以及本人或小组实际完成的工作与核验范围。
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{参考文献}
+\bibitem{reference-placeholder} 作者或机构. 文献或文档标题. 年份或版本. 访问地址及访问日期（按需填写）.
+\end{thebibliography}
+\end{document}

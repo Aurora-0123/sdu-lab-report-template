@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sdu-lab-report}[2026/10/23 Reusable SDU lab report style]
+\RequirePackage[a4paper,top=2.45cm,bottom=2.45cm,left=2.55cm,right=2.55cm]{geometry}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{booktabs,longtable,array,multirow,tabularx}
+\RequirePackage{graphicx,float,caption,xcolor,listings}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\RequirePackage{hyperref}
+\hypersetup{hidelinks}
+\setlength{\parindent}{2em}
+\linespread{1.35}\selectfont
+\renewcommand{\contentsname}{目录}
+\renewcommand{\refname}{参考文献}
+\captionsetup{font=small,labelsep=space}
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codegray}{RGB}{90,90,90}
+\definecolor{codeblue}{RGB}{0,74,145}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{codebg},
+  frame=single,rulecolor=\color{black!25},breaklines=true,
+  columns=fullflexible,showstringspaces=false,
+  keywordstyle=\color{codeblue}\bfseries,commentstyle=\color{codegray},
+  numbers=left,numberstyle=\tiny\color{codegray},
+  xleftmargin=1.8em,framexleftmargin=1.3em,
+  aboveskip=0.7em,belowskip=0.7em}
+
+\newcommand{\ReportCourse}{课程名称实验报告}
+\newcommand{\ReportTitle}{实验名称}
+\newcommand{\ReportSubtitle}{}
+\newcommand{\ReportClass}{专业与班级}
+\newcommand{\ReportMembers}{姓名\quad 学号}
+\newcommand{\ReportMemberLabel}{组\quad\quad 员：}
+\newcommand{\ReportDate}{实验日期}
+\newcommand{\ReportAuthor}{作者}
+\newcommand{\ReportLogo}{assets/sdu-logo.png}
+\AtBeginDocument{\hypersetup{pdfauthor={\ReportAuthor},pdftitle={\ReportTitle}}}
+
+\newcommand{\makereportcover}{%
+  \begin{titlepage}
+  \centering
+  \vspace*{0.6cm}
+  \includegraphics[width=0.82\textwidth]{\ReportLogo}\\[1.25cm]
+  {\heiti\zihao{2}\ReportCourse\par}\vspace{0.8cm}
+  {\heiti\zihao{1}\ReportTitle\par}\vspace{0.5cm}
+  {\zihao{4}\ReportSubtitle\par}
+  % 原报告用固定 7cm 空白；改为弹性间距，兼容不同标题长度与成员数。
+  \vfill
+  {\renewcommand{\arraystretch}{1.7}% 局部设置，不影响正文表格
+  \begin{tabular}{>{\centering\arraybackslash}p{2.5cm}p{5.5cm}}
+    班\quad\quad 级： & \ReportClass\\
+    \ReportMemberLabel & \ReportMembers\\
+    实验日期： & \ReportDate\\
+  \end{tabular}\par}
+  \vspace*{1cm}
+  \end{titlepage}}
+\newcommand{\reportfrontmatter}{\pagenumbering{Roman}\setcounter{page}{1}}
+\newcommand{\reportmainmatter}{\pagenumbering{arabic}\setcounter{page}{1}}
+\newcommand{\reportkeywords}[1]{\par\noindent\textbf{关键词：}#1\par}
+
+% 真实图片缺失时显示占位框；定稿前应替换路径并确认全部图片实际存在。
+\newcommand{\reportfigure}[3][0.98\textwidth]{%
+  \begin{figure}[H]\centering
+  \IfFileExists{#2}{\includegraphics[width=#1]{#2}}{%
+    \fbox{\parbox[c][3cm][c]{0.88\textwidth}{\centering
+      待插入实际实验截图\\[0.4em]\texttt{\detokenize{#2}}}}}
+  \caption{#3}\end{figure}}
