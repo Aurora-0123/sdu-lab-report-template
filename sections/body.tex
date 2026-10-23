@@ -1,0 +1,95 @@
+% 将本文件中的说明替换为本次实验正文。章节可按课程要求增删。
+\section{实验背景与任务说明}
+说明实验背景、实验目的、题目要求及完成范围。
+
+\section{实验成员分工}
+个人实验可删除本节。
+\begin{table}[H]
+\centering
+\caption{小组成员分工}
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule 成员 & 主要工作\\\midrule
+姓名一 & 填写实际承担的任务。\\
+姓名二 & 填写实际承担的任务。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{实验环境与工具}
+\begin{table}[H]
+\centering
+\caption{实验环境}
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule 项目 & 配置或工具\\\midrule
+操作系统 & 填写系统及版本。\\
+硬件或虚拟机 & 填写实际配置。\\
+编程语言与依赖 & 填写语言、编译器及依赖版本。\\
+开发与调试工具 & 填写工具及版本。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{实验原理与方案设计}
+\subsection{基本原理}
+说明关键概念、算法或系统机制。公式示例（应替换为本次实验的实际公式）：
+\begin{equation}
+\bar{t}=\frac{1}{n}\sum_{i=1}^{n}t_i
+\label{eq:mean}
+\end{equation}
+
+\subsection{整体流程}
+以下为版式示例，按实际实验修改节点和连接关系。
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  stage/.style={draw,rounded corners=3pt,text width=8cm,
+    minimum height=0.8cm,align=center,fill=black!4},
+  arr/.style={-{Stealth[length=2.2mm]},thick}]
+\node[stage] (prepare) {环境准备与输入检查};
+\node[stage,below=of prepare] (run) {执行实验步骤};
+\node[stage,below=of run] (verify) {记录结果与核验};
+\draw[arr] (prepare) -- (run);
+\draw[arr] (run) -- (verify);
+\end{tikzpicture}
+\caption{实验流程示例}
+\end{figure}
+
+\section{实验步骤与关键实现}
+\subsection{环境准备}
+填写安装、配置、构建或启动步骤，以及实际使用的命令。
+\subsection{关键代码}
+以下代码仅演示代码块样式，不代表本次实验的实现。代码中建议使用英文注释；中文解释放在代码块外。
+\begin{lstlisting}[language=Python,caption={代码排版示例}]
+def mean_time(samples):
+    if not samples:
+        raise ValueError("samples must not be empty")
+    return sum(samples) / len(samples)
+\end{lstlisting}
+
+\section{实验结果与分析}
+\subsection{运行结果}
+先描述实际现象，再插入对应截图并解释其能支持的结论。
+\reportfigure{figures/result.png}{实验运行结果（待替换为真实截图）}
+
+\subsection{测试与数据分析}
+下表中的“待填写”为占位内容。填写实际数据、单位、测试条件和重复次数后再作分析。
+\begin{table}[H]
+\centering
+\caption{测试结果记录}
+\label{tab:results}
+\begin{tabularx}{\textwidth}{p{2.5cm}p{2.6cm}X}
+\toprule 测试项 & 实际结果 & 现象与分析\\\midrule
+正常流程 & 待填写 & 记录实际执行现象。\\
+边界或异常情况 & 待填写 & 记录输入条件、结果与原因。\\
+性能指标 & 待填写 & 写明单位、环境与统计方式。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+交叉引用示例：表\ref{tab:results}记录实际结果，式\eqref{eq:mean}演示公式引用。
+
+\section{问题讨论与改进方向}
+记录实际遇到的问题、定位依据、解决方法，以及尚未解决的限制。
+
+\section{实验总结}
+总结完成了哪些目标、哪些结果有证据支持、获得了什么认识，以及可继续改进的方向。
